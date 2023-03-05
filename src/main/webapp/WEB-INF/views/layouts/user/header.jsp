@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <header id="header">
 			<div class="row">
 				<div class="span4">
@@ -58,7 +57,7 @@ Navigation Bar Section
 						<ul class="nav pull-right">
 							<li class="dropdown"><a data-toggle="dropdown"
 								class="dropdown-toggle" href="#"><span class="icon-lock"></span>
-									Login <b class="caret"></b></a>
+									Đăng Nhập <b class="caret"></b></a>
 								<div class="dropdown-menu">
 									<form class="form-horizontal loginFrm">
 										<div class="control-group">

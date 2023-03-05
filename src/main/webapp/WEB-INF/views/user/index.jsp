@@ -8,29 +8,12 @@
 		<div id="sidebar" class="span3">
 			<div class="well well-small">
 				<ul class="nav nav-list">
-					<li><a href="products.html"><span
-							class="icon-chevron-right"></span>Fashion</a></li>
-					<li><a href="products.html"><span
-							class="icon-chevron-right"></span>Watches</a></li>
-					<li><a href="products.html"><span
-							class="icon-chevron-right"></span>Fine Jewelry</a></li>
-					<li><a href="products.html"><span
-							class="icon-chevron-right"></span>Fashion Jewelry</a></li>
-					<li><a href="products.html"><span
-							class="icon-chevron-right"></span>Engagement & Wedding</a></li>
-					<li><a href="products.html"><span
-							class="icon-chevron-right"></span>Men's Jewelry</a></li>
-					<li><a href="products.html"><span
-							class="icon-chevron-right"></span>Vintage & Antique</a></li>
-					<li><a href="products.html"><span
-							class="icon-chevron-right"></span>Loose Diamonds </a></li>
-					<li><a href="products.html"><span
-							class="icon-chevron-right"></span>Loose Beads</a></li>
-					<li><a href="products.html"><span
-							class="icon-chevron-right"></span>See All Jewelry & Watches</a></li>
-					<li style="border: 0">&nbsp;</li>
-					<li><a class="totalInCart" href="cart.html"><strong>Total
-								Amount <span class="badge badge-warning pull-right"
+					<c:forEach var="item" items ="${categorys }">
+						<li><a href="/san-pham/${item.id }"><span
+						class="icon-circle-blank"></span> ${item.name }</a></li>
+					</c:forEach>
+					
+					<li><a class="totalInCart" href="cart.html"><strong>Đã Mua <span class="badge badge-warning pull-right"
 								style="line-height: 18px;">$448.42</span>
 						</strong></a></li>
 				</ul>
@@ -107,51 +90,26 @@
 			<div class="well np">
 				<div id="myCarousel" class="carousel slide homCar">
 					<div class="carousel-inner">
-						<div class="item">
-							<img style="width: 100%"
-								src="<c:url value="/assets/user/img/bootstrap_free-ecommerce.png"/>"
-								alt="bootstrap ecommerce templates">
-							<div class="carousel-caption">
-								<h4>Bootstrap shopping cart</h4>
-								<p>
-									<span>Very clean simple to use</span>
-								</p>
-							</div>
-						</div>
-						<div class="item">
-							<img style="width: 100%"
-								src="<c:url value="/assets/user/img/carousel1.png"/> "
-								alt="bootstrap ecommerce templates">
-							<div class="carousel-caption">
-								<h4>Bootstrap Ecommerce template</h4>
-								<p>
-									<span>Highly Google seo friendly</span>
-								</p>
-							</div>
-						</div>
-						<div class="item active">
-							<img style="width: 100%"
-								src="<c:url value="/assets/user/img/carousel3.png"/> "
-								alt="bootstrap ecommerce templates">
-							<div class="carousel-caption">
-								<h4>Twitter Bootstrap cart</h4>
-								<p>
-									<span>Very easy to integrate and expand.</span>
-								</p>
-							</div>
-						</div>
-						<div class="item">
-							<img style="width: 100%"
-								src="<c:url value="/assets/user/img/bootstrap-templates.png"/>"
-								alt="bootstrap templates">
-							<div class="carousel-caption">
-								<h4>Bootstrap templates integration</h4>
-								<p>
-									<span>Compitable to many more opensource cart</span>
-								</p>
-							</div>
-						</div>
-					</div>
+						<c:forEach var="item" items ="${slides }" varStatus="index">
+							<c:if test="${index.first }">
+								<div class="item active">
+							</c:if>
+							<c:if test="${not index.first }">
+								<div class="item">
+							</c:if>
+									<img style="width: 100%"
+											src="<c:url value="/assets/user/img/slide/${item.img}"/>"
+											alt="bootstrap ecommerce templates">
+									<div class="carousel-caption">
+										<h4>${item.caption}</h4>
+										<p>
+											<span>${item.content}</span>
+										</p>
+									</div>
+								</div>
+						</c:forEach>
+					
+				</div>
 					<a class="left carousel-control" href="#myCarousel"
 						data-slide="prev">&lsaquo;</a> <a class="right carousel-control"
 						href="#myCarousel" data-slide="next">&rsaquo;</a>
