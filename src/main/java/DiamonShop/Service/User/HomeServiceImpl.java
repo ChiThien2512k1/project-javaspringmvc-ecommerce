@@ -6,8 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import DiamonShop.Dao.CategorysDao;
+import DiamonShop.Dao.MenusDao;
+import DiamonShop.Dao.ProductsDao;
 import DiamonShop.Dao.SlidesDao;
+import DiamonShop.Dto.ProductsDto;
 import DiamonShop.Entity.Categorys;
+import DiamonShop.Entity.Menus;
 import DiamonShop.Entity.Slides;
 @Service
 public class HomeServiceImpl implements IHomeService{
@@ -15,6 +19,11 @@ public class HomeServiceImpl implements IHomeService{
 	private SlidesDao slideDao;
 	@Autowired
 	private CategorysDao categorysDao;
+	@Autowired
+	private MenusDao menuDao;
+	@Autowired
+	private ProductsDao productsDao;
+	
 	public List<Slides> GetDataSlide(){
 		
 		return slideDao.GetDataSlide();
@@ -23,8 +32,12 @@ public class HomeServiceImpl implements IHomeService{
 		
 		return categorysDao.GetDataCategorys();
 	}
-	public List<Categorys> GetDataMenu() {
+	public List<Menus>GetDataMenus(){
 		
-		return null;
+		return menuDao.GetDataMenus();
+	}
+	public List<ProductsDto> GetDataProducts() {
+		List<ProductsDto> listProducts =productsDao.GetDataProducts();
+		return listProducts;
 	}
 }
