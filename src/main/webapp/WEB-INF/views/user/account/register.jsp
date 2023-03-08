@@ -1,20 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/views/layouts/user/taglib.jsp"%>
-
 <head>
 <meta charset="UTF-8">
-<title>Chi tiết sản phẩm</title>
-<style>
-	.product-content{
-	overflow-x:hidden;
-	}
-</style>
-
+<title>Đăng ký tài khoản</title>
 </head>
 <body>
-
-	<div class="row product-content">
+	<div class="row">
 		<div id="sidebar" class="span3">
 			<div class="well well-small">
 				<ul class="nav nav-list">
@@ -49,9 +41,8 @@
 			<div class="well well-small alert alert-warning cntr">
 				<h2>50% Discount</h2>
 				<p>
-					only valid for online order. <br>
-					<br>
-					<a class="defaultBtn" href="#">Click here </a>
+					only valid for online order. <br> <br> <a
+						class="defaultBtn" href="#">Click here </a>
 				</p>
 			</div>
 			<div class="well well-small">
@@ -60,7 +51,7 @@
 			</div>
 
 			<a class="shopBtn btn-block" href="#">Upcoming products <br>
-			<small>Click to view</small></a> <br> <br>
+				<small>Click to view</small></a> <br> <br>
 			<ul class="nav nav-list promowrapper">
 				<li>
 					<div class="thumbnail">
@@ -112,104 +103,83 @@
 		<div class="span9">
 			<ul class="breadcrumb">
 				<li><a href="index.html">Trang chủ</a> <span class="divider">/</span></li>
-				<li><a href="products.html">Sản phẩm</a> <span class="divider">/</span></li>
-				<li class="active">Chi tiết sản phẩm</li>
+				<li class="active">User</li>
 			</ul>
-			<div class="well well-small">
-				<div class="row-fluid">
-					<div class="span5">
-						<div id="myCarousel" class="carousel slide cntr">
-							<div class="carousel-inner">
-								<div class="item active">
-									<a href="#"> <img src="<c:url value="/assets/user/img/${product.img }"/> " alt=""
-										style="width: 100%"></a>
-								</div>
-							</div>
-							<a class="left carousel-control" href="#myCarousel"
-								data-slide="prev">‹</a> <a class="right carousel-control"
-								href="#myCarousel" data-slide="next">›</a>
-						</div>
-					</div>
-					<div class="span7">
-						<h3>${product.name}</h3>
-						<hr class="soft" />
+			<hr class="soft" />
 
-						<form class="form-horizontal qtyFrm" method="get" action="<c:url value="/AddCart/${product.id_product }"/> ">
+			<div class="row">
+				<div class="span4">
+					<div class="well">
+						<h5>Create a new account</h5>
+						<form:form action="dang-ky" method="POST" modelAttribute="user">
 							<div class="control-group">
-								<label class="control-label"><span><fmt:formatNumber
-													type="number" groupingUsed="true" value="${product.price}" />
-												₫</span></label>
+								<label class="control-label" for="inputEmail">E-mail </label>
 								<div class="controls">
-									<input type="number" min="0" value ="1" class="span6">
+									<form:input type="email" class="span3" path="user"
+										placeholder="Enter your email" />
 								</div>
 							</div>
-
 							<div class="control-group">
-								<label class="control-label"><span>Color</span></label>
+								<label class="control-label" for="inputPassword">Password
+								</label>
 								<div class="controls">
-									<select class="span11">
-										<option>Red</option>
-										<option>Purple</option>
-										<option>Pink</option>
-										<option>Red</option>
-									</select>
+									<form:input type="password" class="span3" path="password"
+										placeholder="Enter your password" />
 								</div>
 							</div>
-							<p>${product.title}
-							<p>
-								<button type="submit" class="shopBtn">
-									<span class=" icon-shopping-cart"></span> Thêm giỏ hàng
-								</button>
-						</form>
+							<div class="control-group">
+								<label class="control-label" for="inputEmail">Username </label>
+								<div class="controls">
+									<form:input type="text" class="span3" path="display_name"
+										placeholder="Enter your username" />
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="inputEmail">Address </label>
+								<div class="controls">
+									<form:input type="text" class="span3" path="address"
+										placeholder="Enter your address" />
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="controls">
+									<button type="submit" class="btn block">Register</button>
+								</div>
+							</div>
+						</form:form>
 					</div>
 				</div>
-				<hr class="softn clr" />
-
-
-				<ul id="productDetail" class="nav nav-tabs">
-					<li class="active"><a href="#home" data-toggle="tab">Chi tiết sản phẩm</a></li>
-					<li class=""><a href="#profile" data-toggle="tab">Sản phẩm liên quan </a></li>
-				</ul>
-				<div id="myTabContent" class="tab-content tabWrapper">
-					<div class="tab-pane fade active in" id="home">
-						
-						${product.details}
-
-					</div>
-					<div class="tab-pane fade" id="profile">
-					
-						<c:set var="countlist" value="${productByIDCategory.size()}"/>
-						<c:if test="${productByIDCategory.size() > 6}">
-							<c:set var="countlist" value="6" />
-						</c:if>
-						<c:forEach var="item" items="${productByIDCategory}" begin="1" end="${countlist}" varStatus="loop">
-							<div class="row-fluid">
-							<div class="span2">
-								<img src="<c:url value="/assets/user/img/${item.img }"/> " alt="">
+				<div class="span1">&nbsp;</div>
+				<div class="span4">
+					<div class="well">
+						<h5>Sign in</h5>
+						<h1>${statusLogin}</h1>
+						<form:form action="dang-nhap" method="POST" modelAttribute="user">
+							<div class="control-group">
+								<label class="control-label" for="inputEmail">Email</label>
+								<div class="controls">
+									<form:input type="email" class="span3" path="user"
+										placeholder="Enter your email" />
+								</div>
 							</div>
-							<div class="span6">
-								<h5>${item.name}</h5>
-								<p>${item.title}</p>
+							<div class="control-group">
+								<label class="control-label" for="inputPassword">Password</label>
+								<div class="controls">
+									<form:input type="password" class="span3" path="password"
+										placeholder="Enter your password" />
+								</div>
 							</div>
-							<div class="span4 alignR">
-								<form class="form-horizontal qtyFrm">
-									<h3><fmt:formatNumber
-													type="number" groupingUsed="true" value="${item.price}" />
-												₫</h3>
-									<div class="btn-group">
-										<a href="product_details.html" class="defaultBtn"><span
-											class=" icon-shopping-cart"></span> Add to cart</a> <a
-											href="product_details.html" class="shopBtn">VIEW</a>
-									</div>
-								</form>
+							<div class="control-group">
+								<div class="controls">
+									<button type="submit" class="defaultBtn">Sign in</button>
+									<a href="#">Forget password?</a>
+								</div>
 							</div>
-						</div>
-						<hr class="soft" />
-						</c:forEach>
+						</form:form>
 					</div>
 				</div>
-
 			</div>
+
 		</div>
 	</div>
 </body>
