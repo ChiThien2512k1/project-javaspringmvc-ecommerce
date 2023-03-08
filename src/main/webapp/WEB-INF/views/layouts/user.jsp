@@ -55,6 +55,8 @@
 							Đăng xuất </a>
 					</c:if>
 					<c:if test="${empty LoginInfo }">
+						<a href="<c:url value="/dang-nhap"/>"><span class="icon-edit"></span>
+							Đăng nhập </a>
 						<a href="<c:url value="/dang-ky"/>"><span class="icon-edit"></span>
 							Đăng ký </a>
 					</c:if>

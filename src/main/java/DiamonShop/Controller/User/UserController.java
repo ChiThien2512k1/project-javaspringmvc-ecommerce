@@ -38,6 +38,15 @@ public class UserController extends BaseController{
 		_mvShare.setViewName("user/account/register");
 		return _mvShare;
 	}
+	@RequestMapping(value = {"/dang-nhap"}, method = RequestMethod.GET)
+	public ModelAndView DangNhap() {
+		_mvShare.addObject("slides",_homeServiceImpl.GetDataSlide());
+		_mvShare.addObject("categorys",_homeServiceImpl.GetDataCategorys());
+		_mvShare.addObject("products",_homeServiceImpl.GetDataProducts());
+		_mvShare.addObject("user",new UsersEntity());
+		_mvShare.setViewName("user/account/register");
+		return _mvShare;
+	}
 	@RequestMapping(value = {"/dang-nhap"}, method = RequestMethod.POST)
 	public ModelAndView Login(HttpSession session,@ModelAttribute("user") UsersEntity user) {
 		
