@@ -40,12 +40,13 @@
 			<div class="container">
 				<div class="alignR">
 					<div class="pull-left socialNw">
-						<a href="#"><span class="icon-twitter"></span></a> <a href="#"><span
+						<a href="#"><span class="icon-twitter"></span></a> 
+							<a href="#"><span
 							class="icon-facebook"></span></a> <a href="#"><span
 							class="icon-youtube"></span></a> <a href="#"><span
 							class="icon-tumblr"></span></a>
 					</div>
-					<a class="active" href="index.html"> <span class="icon-home"></span>
+					<a class="active" href="<c:url value="/trang-chu"/>"> <span class="icon-home"></span>
 						Home
 					</a>
 					<c:if test="${not empty LoginInfo }">
@@ -60,8 +61,7 @@
 						<a href="<c:url value="/dang-ky"/>"><span class="icon-edit"></span>
 							Đăng ký </a>
 					</c:if>
-					<a href="contact.html"><span class="icon-envelope"></span>
-						Contact us</a> <a href="<c:url value="/gio-hang"/>"><span
+						<a href="<c:url value="/gio-hang"/>"><span
 						class="icon-shopping-cart"></span> ${TotalQuantityCart} Sản phẩm -
 						<span class="badge badge-warning"><fmt:formatNumber
 								type="number" groupingUsed="true" value="${TotalPriceCart}" />
@@ -86,7 +86,7 @@ Lower Header Section
 
 
 
-
+	<!-- Mua nhiều -->
 	<div class="copyright">
 		<div class="container">
 			<p class="pull-right">
@@ -100,9 +100,6 @@ Lower Header Section
 				<a href="#"><img
 					src="<c:url value="/assets/user/img/disc.png"/>" alt="payment"></a>
 			</p>
-			<span>Copyright &copy; 2013<br> bootstrap ecommerce
-				shopping template
-			</span>
 		</div>
 	</div>
 	<a href="#" class="gotop"><i class="icon-double-angle-up"></i></a>

@@ -15,8 +15,8 @@
 					<li><a class="totalInCart" href="cart.html"><strong>Đã
 								Mua <span class="badge badge-warning pull-right"
 								style="line-height: 18px;"><fmt:formatNumber
-								type="number" groupingUsed="true" value="${TotalPriceCart}" />
-							₫</span>
+										type="number" groupingUsed="true" value="${TotalPriceCart}" />
+									₫</span>
 						</strong></a></li>
 				</ul>
 			</div>
@@ -33,9 +33,7 @@
 					src="<c:url value="/assets/user/img/paypal.jpg"/>"
 					alt="payment method paypal"></a>
 			</div>
-
-			<a class="shopBtn btn-block" href="#">Upcoming products <br>
-				<small>Click to view</small></a> <br> <br>
+			<!-- Sản phẩm sắp bán -->
 			<ul class="nav nav-list promowrapper">
 				<li>
 					<div class="thumbnail">
@@ -128,28 +126,33 @@ New Products
 						<c:if test="${products.size() > 0 }">
 							<div class="item active">
 								<ul class="thumbnails">
+									<!-- Chưa chỉnh cần show 8 sản phẩm-->
 									<c:forEach var="item" items="${products }" varStatus="loop">
 										<li class="span3">
 											<div class="thumbnail">
-												<a class="zoomTool" href="product_details.html"
+												<a class="zoomTool"
+													href="chi-tiet-san-pham/${item.id_product }"
 													title="add to cart"><span class="icon-search"></span>
-													QUICK VIEW</a> <a href="product_details.html"><img
-													src="<c:url value="/assets/user/img/${item.img }"/> " alt=""></a>
+													Xem chi tiết</a> <a
+													href="chi-tiet-san-pham/${item.id_product }"><img
+													src="<c:url value="/assets/user/img/${item.img }"/> "
+													alt=""></a>
 											</div>
 										</li>
-										<c:if test="${(loop.index + 1)%4==0 || (loop.index +1) == products.size() }">
-											</ul>
-										</div>
-											<c:if test="${(loop.index +1) < products.size() }">
-												<div class="item">
-													<ul class="thumbnails">
-											</c:if>
-										</c:if>
-									</c:forEach>
+										<c:if
+											test="${(loop.index + 1)%4==0 || (loop.index +1) == products.size() }">
+								</ul>
+							</div>
+							<c:if test="${(loop.index +1) < products.size() }">
+								<div class="item">
+									<ul class="thumbnails">
 							</c:if>
-							
-						
-						
+						</c:if>
+						</c:forEach>
+						</c:if>
+
+
+
 					</div>
 					<a class="left carousel-control" href="#newProductCar"
 						data-slide="prev">&lsaquo;</a> <a class="right carousel-control"
@@ -170,20 +173,24 @@ New Products
 			<div class="row-fluid">
 				<c:if test="${products.size() >0 }">
 					<ul class="thumbnails">
+						<!-- Chỉ hiện 9 sản phẩm nổi bật random -->
 						<c:forEach var="item" items="${products }" varStatus="loop">
 							<li class="span4">
 								<div class="thumbnail">
 									<a class="zoomTool" href="product_details.html"
-										title="add to cart"><span class="icon-search"></span>
-										QUICK VIEW</a> <a href="chi-tiet-san-pham/${item.id_product }"><img
+										title="add to cart"><span class="icon-search"></span> Xem
+										chi tiết</a> <a href="chi-tiet-san-pham/${item.id_product }"><img
 										src="<c:url value="/assets/user/img/${item.img }"/> " alt=""></a>
 									<div class="caption">
 										<h5>${item.name }</h5>
 										<h4>
-											<a class="defaultBtn" href="product_details.html"
-												title="Click to view"><span class="icon-zoom-in"></span></a>
-											<a class="shopBtn" href="<c:url value="/AddCart/${item.id_product }"/> " title="add to cart"><span
-												class="icon-plus"></span></a> <span class="pull-right"> <fmt:formatNumber
+											<a class="defaultBtn"
+												href="chi-tiet-san-pham/${item.id_product }"
+												title="Xem chi tiết"><span class="icon-zoom-in"></span></a>
+											<a class="shopBtn"
+												href="<c:url value="/AddCart/${item.id_product }"/> "
+												title="Thêm vào giỏ hàng"><span class="icon-plus"></span></a>
+											<span class="pull-right"> <fmt:formatNumber
 													type="number" groupingUsed="true" value="${item.price}" />
 												₫
 											</span>
@@ -208,8 +215,52 @@ New Products
 		<hr>
 
 		<div class="well well-small">
-			<a class="btn btn-mini pull-right" href="#">Xem thêm <span
-				class="icon-plus"></span></a> Tất cả sản phẩm
+			<h3>
+				<a class="btn btn-mini pull-right" href="products.html"
+					title="Xem thêm">Xem thêm<span class="icon-plus"></span></a> Tất cả sản phẩm
+			</h3>
+			<hr class="soften" />
+			<div class="row-fluid">
+				<c:if test="${products.size() >0 }">
+					<ul class="thumbnails">
+						<!-- Chỉ hiện 9 sản phẩm nổi bật random -->
+						<c:forEach var="item" items="${products }" varStatus="loop">
+							<li class="span4">
+								<div class="thumbnail">
+									<a class="zoomTool" href="product_details.html"
+										title="add to cart"><span class="icon-search"></span> Xem
+										chi tiết</a> <a href="chi-tiet-san-pham/${item.id_product }"><img
+										src="<c:url value="/assets/user/img/${item.img }"/> " alt=""></a>
+									<div class="caption">
+										<h5>${item.name }</h5>
+										<h4>
+											<a class="defaultBtn"
+												href="chi-tiet-san-pham/${item.id_product }"
+												title="Xem chi tiết"><span class="icon-zoom-in"></span></a>
+											<a class="shopBtn"
+												href="<c:url value="/AddCart/${item.id_product }"/> "
+												title="Thêm vào giỏ hàng"><span class="icon-plus"></span></a>
+											<span class="pull-right"> <fmt:formatNumber
+													type="number" groupingUsed="true" value="${item.price}" />
+												₫
+											</span>
+										</h4>
+									</div>
+								</div>
+							</li>
+							<c:if
+								test="${(loop.index + 1)%3==0 || (loop.index +1) == products.size() }">
+					</ul>
+					<c:if test="${(loop.index +1) < products.size() }">
+						<ul class="thumbnails">
+					</c:if>
+				</c:if>
+				</c:forEach>
+
+
+				</c:if>
+
+			</div>
 		</div>
 	</div>
 	</div>
