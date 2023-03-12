@@ -34,7 +34,7 @@
 					alt="payment method paypal"></a>
 			</div>
 			<!-- Sản phẩm sắp bán -->
-			<ul class="nav nav-list promowrapper">
+			<%-- <ul class="nav nav-list promowrapper">
 				<li>
 					<div class="thumbnail">
 						<a class="zoomTool" href="product_details.html"
@@ -82,7 +82,7 @@
 						</div>
 					</div>
 				</li>
-			</ul>
+			</ul> --%>
 
 		</div>
 		<div class="span9">

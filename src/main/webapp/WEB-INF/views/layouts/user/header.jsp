@@ -49,10 +49,10 @@ Navigation Bar Section
 						</li>
 					</c:forEach>
 				</ul>
-				<form action="#" class="navbar-search pull-left">
+				<!-- <form action="#" class="navbar-search pull-left">
 					<input type="text" placeholder="Search" class="search-query span2">
-				</form>
-				<ul class="nav pull-right">
+				</form> -->
+				<%-- <ul class="nav pull-right">
 					<c:if test="${empty LoginInfo }">
 						<li class="dropdown"><a data-toggle="dropdown"
 							class="dropdown-toggle" href="#"><span class="icon-lock"></span>
@@ -85,7 +85,7 @@ Navigation Bar Section
 
 
 
-				</ul>
+				</ul> --%>
 			</div>
 		</div>
 	</div>
